@@ -1,4 +1,8 @@
-<x-app-layout>
+@extends('layouts/app')
+
+@section('title', 'Dashboard | CropSystem')
+
+@section('container')    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Detail Tanaman
@@ -53,4 +57,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

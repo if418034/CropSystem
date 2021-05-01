@@ -1,4 +1,9 @@
-<x-app-layout>
+@extends('layouts/app')
+
+@section('title', 'Tanaman | CropSystem')
+
+@section('container')
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('List Tanaman') }}
@@ -76,4 +81,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
