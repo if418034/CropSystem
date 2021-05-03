@@ -1,6 +1,6 @@
 @extends('layouts/app')
 
-@section('title', 'Dashboard | CropSystem')
+@section('title', 'Crops | CropSystem')
 
 @section('container')
 

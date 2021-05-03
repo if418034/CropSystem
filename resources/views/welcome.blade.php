@@ -29,8 +29,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Information</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Images</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                     @auth
                     <li class="nav-item ml-2"><a href="{{ url('/dashboard') }}" class="nav-link js-scroll-trigger">Dashboard</a></li>
@@ -56,8 +56,8 @@
                     <hr class="divider my-4" />
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+                    <p class="text-white-75 font-weight-light mb-5">Sekarang semua dapat bercocok tanam! Anda bisa mendapatkan dalam bercocok tanam disini.</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Temukan Lebih banyak</a>
                 </div>
             </div>
         </div>
@@ -67,9 +67,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">We've got what you need!</h2>
+                    <h2 class="text-white mt-0">Informasi Cropping!</h2>
                     <hr class="divider light my-4" />
-                    <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                    <p class="text-white-50 mb-4">Pertanian ditentukan oleh jenis tanah dan parameter iklim yang menentukan pengaturan agro-ekologi keseluruhan untuk makanan dan kesesuaian atau serangkaian tanaman atau serangkaian tanaman untuk budidaya</p>
                     <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
                 </div>
             </div>
@@ -78,35 +78,35 @@
     <!-- Services-->
     <section class="page-section" id="services">
         <div class="container">
-            <h2 class="text-center mt-0">At Your Service</h2>
+            <h2 class="text-center mt-0">Informasi Sistem Rotasi Tanaman</h2>
             <hr class="divider my-4" />
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Sturdy Themes</h3>
-                        <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                        <i class="fas fa-4x fa-water text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Kondisi tanah</h3>
+                        <p class="text-muted mb-0">Kondisi tanah mencakup kelembapan, suhu, dan konduktivitas listrik (EC) di berbagai kedalaman.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Up to Date</h3>
-                        <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                        <i class="fas fa-4x fa-cloud-sun text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Kondisi Cuaca</h3>
+                        <p class="text-muted mb-0">Informasi cuaca meliputi suhu udara, kelembapan, kecepatan angin, evapotranspirasi (ET), curah hujan, suhu min dan maks, dan banyak lagi.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Ready to Publish</h3>
-                        <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                        <i class="fas fa-4x fa-chart-area text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Pemetaan Tanah</h3>
+                        <p class="text-muted mb-0">Jenis dan tekstur tanah sangat penting untuk perhitungan tingkat kelembapan yang tepat, sistem irigasi, sifat hidrolik dan bahan organik</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Made with Love</h3>
-                        <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                        <i class="fas fa-4x fa-cloud-moon-rain text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Musim</h3>
+                        <p class="text-muted mb-0">Musim hujan di Indonesia terjadi antara bulan September-Maret. Musim Kemarau dimulai bulan April-Agustus.</p>
                     </div>
                 </div>
             </div>
@@ -174,31 +174,43 @@
         </div>
     </div>
     <!-- Call to action-->
-    <section class="page-section bg-dark text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-            <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
-        </div>
+    <section class="page-section bg-light text-black">
+        <form class="mx-5">
+            <h3>Leave your reply</h3>
+            <div class="form-group ml-5 mr-5 mt-5">
+                <label for="address">Alamat Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group ml-5 mr-5">
+                <label for="fullname">Nama</label>
+                <input type="name" class="form-control" id="fullname" placeholder="Nama Lengkap">
+            </div>
+            <div class="form-group ml-5 mr-5">
+                <label for="komentar">Komentar</label>
+                <textarea class="form-control" id="komentar" placeholder="Berikan komentar anda" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary mx-5">Post</button>
+        </form>
     </section>
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="mt-0">Let's Get In Touch!</h2>
+                    <h2 class="mt-0">Hubungi Kami disini!</h2>
                     <hr class="divider my-4" />
-                    <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p class="text-muted mb-5">Punya Kendala dan masalah? hubungi kami pada kontak dibawah ini.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
                     <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                    <div>+1 (555) 123-4567</div>
+                    <div>+6282287955430</div>
                 </div>
                 <div class="col-lg-4 mr-auto text-center">
                     <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                     <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                    <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                    <a class="d-block" href="mailto:contact@yourwebsite.com">cropsystem@gmail.com</a>
                 </div>
             </div>
         </div>
