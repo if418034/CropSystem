@@ -32,6 +32,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Information</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Images</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    
                     @auth
                     <li class="nav-item ml-2"><a href="{{ url('/dashboard') }}" class="nav-link js-scroll-trigger">Dashboard</a></li>
                     @else
@@ -210,7 +211,7 @@
                 <div class="col-lg-4 mr-auto text-center">
                     <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                     <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                    <a class="d-block" href="mailto:contact@yourwebsite.com">cropsystem@gmail.com</a>
+                    <a class="d-block" href="mailto:cropsystem@gmail.com">cropsystem@gmail.com</a>
                 </div>
             </div>
         </div>

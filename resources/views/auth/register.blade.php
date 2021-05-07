@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,8 +58,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="password_confirmation" value="{{ __('Confirm Password') }}"></label>
-                                        <input id="password_confirmation" class="form-control form-control-user" type="password" 
-                                        placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                                        <input id="password_confirmation" class="form-control form-control-user" type="password" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                     <div class="mt-4">

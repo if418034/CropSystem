@@ -88,6 +88,11 @@
                     <i class="fas fa-fw fa-comments"></i>
                     <span>{{ __('Feedback') }}</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('roles.index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>{{ __('Users') }}</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
