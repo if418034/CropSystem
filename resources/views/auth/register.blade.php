@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="password_confirmation" value="{{ __('Confirm Password') }}"></label>
-                                        <input id="password_confirmation" class="form-control form-control-user" type="password" 
+                                        <input id="password_confirmation" class="form-control form-control-user" type="password"
                                         placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -82,11 +82,8 @@
                                     {{ __('Register') }}
                                 </button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                 </a>
                             </form>
                             <hr>

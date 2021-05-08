@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TanamansController;
 use App\Http\Controllers\CropsController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('feedback', FeedbackController::class);
-
 Route::resource('tanamans', TanamansController::class);
 Route::resource('crops', CropsController::class);
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::post('/login',[
+    'uses' => 'App\Http\Controllers\UsersController@login',
+    'as' => 'user.login'
+]);
+//Route::post('/login', [UsersController::class, 'login']);

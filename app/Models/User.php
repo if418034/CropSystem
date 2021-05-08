@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id',
     ];
 
     /**
@@ -58,4 +59,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function is_admin(){
+        if($this->admin){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_farmer(){
+        if($this->farmer){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
