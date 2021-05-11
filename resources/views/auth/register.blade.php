@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -60,6 +60,7 @@
                                         <label for="password_confirmation" value="{{ __('Confirm Password') }}"></label>
                                         <input id="password_confirmation" class="form-control form-control-user" type="password"
                                         placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+
                                     </div>
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                     <div class="mt-4">
@@ -78,9 +79,9 @@
                                     </div>
                                     @endif
                                 </div>
-                                <button class="btn btn-primary btn-user btn-block">
-                                    {{ __('Register') }}
-                                </button>
+                                <a href="{{ route('users.store') }}" class="btn btn-primary btn-user btn-block">
+                                    Daftar
+                                </a>
                                 <hr>
                                 <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google

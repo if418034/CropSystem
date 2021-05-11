@@ -5,8 +5,8 @@ use App\Http\Controllers\TanamansController;
 use App\Http\Controllers\CropsController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::resource('feedback', FeedbackController::class);
+Route::resource('request', RequestController::class);
+Route::resource('users', UsersController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('crops', CropsController::class);
 
@@ -37,4 +35,13 @@ Route::post('/login',[
     'uses' => 'App\Http\Controllers\UsersController@login',
     'as' => 'user.login'
 ]);
-//Route::post('/login', [UsersController::class, 'login']);
+Route::post('/plainLogin', [UsersController::class, 'login']);
+
+Route::get('/changeFarmer/{id}', [UsersController::class, 'changeFarmer']);
+Route::get('/deleteUser/{id}', [UsersController::class, 'destroy']);
+Route::get('/unregistered', [UsersController::class, 'unregistered']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
