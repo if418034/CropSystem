@@ -40,7 +40,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
                             <x-jet-validation-errors class="mb-4" />
-                            <form class="user" method="POST" action="{{ route('register') }}">
+                            <form class="user" method="POST" action="{{ route('users.store') }}">
                                 @csrf
 
                                 <div class="form-group">
@@ -79,9 +79,9 @@
                                     </div>
                                     @endif
                                 </div>
-                                <a href="{{ route('users.store') }}" class="btn btn-primary btn-user btn-block">
-                                    Daftar
-                                </a>
+                                    <button class="btn btn-primary btn-user btn-block">
+                                        Create
+                                    </button>
                                 <hr>
                                 <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google

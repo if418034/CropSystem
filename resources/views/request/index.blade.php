@@ -19,12 +19,17 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Anda belum terdaftar sebagai Petani</h5>
-            <p class="card-text">Silahkan klik request untuk meminta role kepada Admin</p>
-            <form class="inline-block" action="{{ url('/') }}" onsubmit="return confirm('Silahkan menunggu konfirmasi dari Admin')">
+            <p class="card-text">Tunggu sampai Admin menjadikan anda sebagai Petani</p>
+{{--            <form class="inline-block" action="{{ url('/') }}" onsubmit="return confirm('Silahkan menunggu konfirmasi dari Admin')">--}}
 {{--                <a class="btn btn-secondary" data-dismiss="modal" href="{{ url('/') }}">Batal</a>--}}
-                <input type="submit" class="btn btn-secondary" value="Request">
-            </form><br>
-            <a class="btn btn-secondary" data-dismiss="modal" href="{{ url('/') }}">Batal</a>
+{{--                <input type="submit" class="btn btn-secondary" value="Request">--}}
+{{--            </form><br>--}}
+{{--            <a class="btn btn-secondary" data-dismiss="modal" href="{{ url('/') }}">Kembali</a>--}}
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+{{--                <button class="btn btn-secondary" type="button" data-dismiss="modal">Kembali</button>--}}
+                <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Kembali') }}</a>
+            </form>
         </div>
         <div class="card-footer text-muted">
             Cropsystem

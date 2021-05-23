@@ -28,6 +28,7 @@ Route::resource('request', RequestController::class);
 Route::resource('users', UsersController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('crops', CropsController::class);
+//Route::resource('profile', CropsController::class);
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
@@ -35,11 +36,15 @@ Route::post('/login',[
     'uses' => 'App\Http\Controllers\UsersController@login',
     'as' => 'user.login'
 ]);
+
 Route::post('/plainLogin', [UsersController::class, 'login']);
+
 
 Route::get('/changeFarmer/{id}', [UsersController::class, 'changeFarmer']);
 Route::get('/deleteUser/{id}', [UsersController::class, 'destroy']);
 Route::get('/unregistered', [UsersController::class, 'unregistered']);
+
+Route::get('/changePassword/{id}' , [UsersController::class, 'changePassword']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
