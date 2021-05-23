@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TanamansController;
 use App\Http\Controllers\CropsController;
+use App\Http\Controllers\JadwalsController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,8 @@ Route::resource('request', RequestController::class);
 Route::resource('users', UsersController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('crops', CropsController::class);
+Route::resource('jadwals', JadwalsController::class);
+
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
