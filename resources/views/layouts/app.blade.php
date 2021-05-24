@@ -72,8 +72,16 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
-                    <i class="fas fa-fw fa-clipboard-check"></i>    
+                    <i class="fas fa-fw fa-calendar"></i>    
                     <span>{{ __('Jadwal Penanaman') }} </span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('datas.index') }}" :active="request()->routeIs('datas.index')">
+                    <i class="fas fa-fw fa-tree"></i>    
+                    <span>{{ __('Data Tanaman') }} </span>
                 </a>
             </li>
 

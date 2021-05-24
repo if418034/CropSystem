@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TanamansController;
 use App\Http\Controllers\CropsController;
 use App\Http\Controllers\JadwalsController;
+use App\Http\Controllers\DatasController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
@@ -29,13 +30,14 @@ Route::resource('feedback', FeedbackController::class);
 Route::resource('request', RequestController::class);
 Route::resource('users', UsersController::class);
 Route::resource('tanamans', TanamansController::class);
+Route::resource('datas', DatasController::class);
 Route::resource('crops', CropsController::class);
 Route::resource('jadwals', JadwalsController::class);
 
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-Route::post('/login',[
+Route::post('/login', [
     'uses' => 'App\Http\Controllers\UsersController@login',
     'as' => 'user.login'
 ]);
@@ -48,4 +50,3 @@ Route::get('/unregistered', [UsersController::class, 'unregistered']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
