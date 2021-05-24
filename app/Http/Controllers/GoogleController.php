@@ -8,7 +8,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
 {
-    public function redirectToGoogle(){
+    public function redirectToGoogle()
+    {
         return Socialite::driver('google')->redirect();
     }
 
@@ -18,15 +19,15 @@ class GoogleController extends Controller
         $findadmin = User::where('google_id', $user->getId())->where('admin', 1)->first();
         $findfarmer = User::where('google_id', $user->getId())->where('farmer', 1)->first();
         $notfarmer = User::where('google_id', $user->getId())->where('farmer', 0)->first();
-        if($findadmin){
+        if ($findadmin) {
             Auth::login($findadmin);
             return redirect()->intended('tanamans');
-        }else if($notfarmer){
+        } else if ($notfarmer) {
             return redirect('/unregistered');
-        }else if($findfarmer){
+        } else if ($findfarmer) {
             Auth::login($findfarmer);
             return redirect()->intended('crops');
-        }else{
+        } else {
             $newUser = User::create([
                 'name' => $user->getName(),
                 'username' => $user->getEmail(),

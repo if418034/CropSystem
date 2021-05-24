@@ -69,6 +69,14 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
+                    <i class="fas fa-fw fa-clipboard-check"></i>    
+                    <span>{{ __('Jadwal Penanaman') }} </span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -99,7 +107,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">    `
+            <div class="text-center d-none d-md-inline"> `
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
@@ -134,7 +142,8 @@
                                     @endif
                                 </div>
 
-                                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}
+                                </div>
 
                             </a>
                             <!-- Dropdown - User Information -->
