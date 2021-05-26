@@ -102,14 +102,6 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center mb-3">
                         <div class="col-auto">
-                            <i class="fas fa-map fa-1x text-gray-300"></i>
-                        </div>
-                        <div class="col ml-2">
-                            <div class="h6 mb-0 font-weight-bold text-gray-700"> &nbsp 2 lahan pertanian</div>
-                        </div>
-                    </div>
-                    <div class="row no-gutters align-items-center mb-3">
-                        <div class="col-auto">
                             <i class="fas fa-clipboard-check fa-1x text-gray-300"></i>
                         </div>
                         <div class="col ml-4">
@@ -133,14 +125,84 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">What's on Production</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tanaman yang sedang dikembangkan</h6>
                     <div class="text-xs font-weight-bold">
-                        See all Crops
+                        Lihat semua
                     </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Varietas
+                                </th>
+                                <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Batches Qty
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Kentang</div>
+                                </td>
 
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">10</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Task</h6>
+                    <div class="text-xs font-weight-bold">
+                        Lihat semua
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Items
+                                </th>
+                                <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Kategori
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="form-check">
+                                        <input class="form-check-input mr-3" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label ml-2" for="flexCheckDefault">
+                                            <div class="text-md text-gray-900">Siapkan semalam</div>
+                                            <div class="text-sm font-weight-light text-primary">Read details</div>
+                                            <div class="text-sm">Due date : 20/04/2021</div>
+                                        </label>
+
+
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-lg text-gray-900"><button type="button" class="btn btn-dark btn-sm"><b>General</b></button></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
