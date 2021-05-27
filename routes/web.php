@@ -9,6 +9,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\SequenceController;
 
 
 /*
@@ -32,8 +33,9 @@ Route::resource('users', UsersController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('datas', DatasController::class);
 Route::resource('crops', CropsController::class);
-Route::resource('profile', CropsController::class);
+//Route::resource('profile', CropsController::class);
 Route::resource('jadwals', JadwalsController::class);
+Route::resource('sequences', SequenceController::class);
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
@@ -44,10 +46,11 @@ Route::post('/login', [
 
 Route::post('/plainLogin', [UsersController::class, 'login']);
 
-
 Route::get('/changeFarmer/{id}', [UsersController::class, 'changeFarmer']);
 Route::get('/deleteUser/{id}', [UsersController::class, 'destroy']);
 Route::get('/unregistered', [UsersController::class, 'unregistered']);
+Route::get('/sequence/editUrutan', [SequenceController::class, 'editUrutan']);
+Route::post('/sequence/simpanUrutan', [SequenceController::class, 'simpanUrutan']);
 
 Route::get('/changePassword/{id}' , [UsersController::class, 'changePassword']);
 
