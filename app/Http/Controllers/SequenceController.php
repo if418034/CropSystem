@@ -14,16 +14,18 @@ class SequenceController extends Controller
      */
     public function index()
     {
-        $sequences = Tanaman::where('sequence', '>=', 1)->orderBy('sequence')->get();
         $notinsequence = Tanaman::where('sequence', null)->get();
         $count = count($notinsequence);
+        $sequences = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get();
+        $countt = count($sequences);
+//        dd(Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get());
 
-        return view('sequences.index', compact('sequences', 'notinsequence', 'count'));
+        return view('sequences.index', compact('sequences', 'notinsequence', 'count', 'countt'));
     }
 
     public function editUrutan()
     {
-        $tanamans = Tanaman::orderBy('sequence')->get();
+        $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get();
         return view('sequences.edit', compact('tanamans'));
     }
 
@@ -35,14 +37,14 @@ class SequenceController extends Controller
         $tanamans = Tanaman::orderBy('sequence')->get();
         $data = Tanaman::all();
         $i = 0;
-        foreach($data as $datums) {
-            $datums = Tanaman::where('id', $request->id[$i])->first();
+        foreach($data as $tanam) {
+            $tanam = Tanaman::where('id', $request->id[$i])->first();
             if($request->sequence[$i] == 0) {
-                $datums->sequence = null;
+                $tanam->sequence = null;
             }else{
-                $datums->sequence = $request->sequence[$i];
+                $tanam->sequence = $request->sequence[$i];
             }
-            $datums->save();
+            $tanam->save();
             $i++;
         }
         return view('sequences.index', compact('sequences', 'notinsequence', 'count'));

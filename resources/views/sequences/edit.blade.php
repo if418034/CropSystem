@@ -28,6 +28,10 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Kategori Tanaman
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Jenis Tanaman
                                         </th>
                                     </tr>
@@ -42,6 +46,11 @@
                                                     <input type="number" max="4" min="0" name="sequence[]"
                                                            value="{{$tanaman->sequence}}">
 
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{$tanaman->kategori}}
+                                                    </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="ml-4">

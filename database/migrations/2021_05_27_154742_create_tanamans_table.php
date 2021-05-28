@@ -18,6 +18,9 @@ class CreateTanamansTable extends Migration
             $table->string('jenisTanaman');
             $table->string('kondisiAgroclimatic');
             $table->string('jenisPupuk');
+            $table->foreignId('id_kategori')->references('id')->on('kategori_tanamans');
+//            $table->foreignId('agency_id')->references('id')->on('agencies');
+            $table->integer('sequence')->nullable()->default(null);
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateTanamansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tanamen');
+        Schema::dropIfExists('tanamans');
     }
 }

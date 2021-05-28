@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePupuksTable extends Migration
+class CreateDatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreatePupuksTable extends Migration
      */
     public function up()
     {
-        Schema::create('pupuks', function (Blueprint $table) {
+        Schema::create('datas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('harga');
-            $table->string('kandungan');
+            $table->string('status');
+            $table->string('area');
+            $table->string('tipe');
+            $table->string('varietas');
+            $table->integer('kuantitas');
+            $table->string('harga');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreatePupuksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pupuks');
+        Schema::dropIfExists('datas');
     }
 }
