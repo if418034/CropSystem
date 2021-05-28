@@ -18,6 +18,7 @@
             Pemberitahuan
         </div>
         <div class="card-body">
+<<<<<<< HEAD
             <h5 class="card-title">Anda belum terdaftar sebagai Petani</h5>
             <p class="card-text">Silahkan klik request untuk meminta role kepada Admin</p>
             <form class="inline-block" action="{{ url('/') }}" onsubmit="return confirm('Silahkan menunggu konfirmasi dari Admin')">
@@ -25,6 +26,12 @@
                 <input type="submit" class="btn btn-secondary" value="Request">
             </form><br>
             <a class="btn btn-secondary" data-dismiss="modal" href="{{ url('/') }}">Batal</a>
+=======
+            <h5 class="card-title">Anda belum mempunyai role</h5>
+            <p class="card-text">Silahkan klik request untuk meminta role kepada Admin</p>
+            <button type="button" class="btn btn-primary">Request</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+>>>>>>> origin
         </div>
         <div class="card-footer text-muted">
             Cropsystem
@@ -40,4 +47,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin

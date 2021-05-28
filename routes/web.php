@@ -6,9 +6,14 @@ use App\Http\Controllers\CropsController;
 use App\Http\Controllers\JadwalsController;
 use App\Http\Controllers\DatasController;
 use App\Http\Controllers\FeedbackController;
+<<<<<<< HEAD
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
+=======
+use App\Http\Controllers\RequestController;
+use App\Http\Controllers\RolesController;
+>>>>>>> origin
 
 
 /*
@@ -28,7 +33,12 @@ Route::get('/', function () {
 
 Route::resource('feedback', FeedbackController::class);
 Route::resource('request', RequestController::class);
+<<<<<<< HEAD
 Route::resource('users', UsersController::class);
+=======
+
+Route::resource('roles', RolesController::class);
+>>>>>>> origin
 Route::resource('tanamans', TanamansController::class);
 Route::resource('datas', DatasController::class);
 Route::resource('crops', CropsController::class);
