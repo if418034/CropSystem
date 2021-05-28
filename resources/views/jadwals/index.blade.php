@@ -66,7 +66,7 @@
                                         {{$jadwal->penyemaian}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$jadawl->panen}} &#176;
+                                        {{$jadwal->panen}} 
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <a href="{{ route('jadwals.show', $jadwal->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
