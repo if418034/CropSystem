@@ -10,6 +10,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SequenceController;
+use App\Http\Controllers\RolesController;
 
 
 /*
@@ -30,6 +31,7 @@ Route::get('/', function () {
 Route::resource('feedback', FeedbackController::class);
 Route::resource('request', RequestController::class);
 Route::resource('users', UsersController::class);
+Route::resource('roles', RolesController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('datas', DatasController::class);
 Route::resource('crops', CropsController::class);

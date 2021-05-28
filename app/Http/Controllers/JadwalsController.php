@@ -28,7 +28,7 @@ class JadwalsController extends Controller
      */
     public function create()
     {
-        return view('crops.create');
+        return view('jadwals.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class JadwalsController extends Controller
     {
         Jadwal::create($request->validated());
 
-        return redirect()->route('crops.index');
+        return redirect()->route('jadwals.index');
     }
 
     /**
@@ -52,7 +52,7 @@ class JadwalsController extends Controller
      */
     public function show(Jadwal $jadwal)
     {
-        return view('crops.show', compact('crop'));
+        return view('jadwals.show', compact('jadwal'));
     }
 
     /**

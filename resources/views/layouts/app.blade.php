@@ -113,7 +113,14 @@
                 <i class="fas fa-fw fa-comments"></i>
                 <span>{{ __('Komentar') }}</span></a>
         </li>
-        @if(Auth::check() && Auth::user()->admin == 1)
+            <!-- Nav Item - Account -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('feedback.index') }}">
+                    <i class="fas fa-fw fa-comments"></i>
+                    <span>{{ __('Feedback') }}</span></a>
+            </li>
+            @if(Auth::check() && Auth::user()->admin == 1)
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('users.index') }}">
                     <i class="fas fa-fw fa-users"></i>
@@ -122,6 +129,16 @@
         @endif
     <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('roles.index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>{{ __('Users') }}</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline"> `
