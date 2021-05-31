@@ -51,14 +51,34 @@ class HasilPanenController extends Controller
         //get tanaman id -> delete  from jadwal && delete fro sequence && delete from tanamans
         $remove = Jadwal::where('jenis_tanaman', '=', $request->jenisTanaman)->delete();
 
-        $updateseq = dd(Tanaman::where('jenisTanaman', $request->jenisTanaman)->select(sequence)->get());
-        dd($updateseq->sequence);
+        $updateseq = Tanaman::where('jenisTanaman', $request->jenisTanaman)->first();
+        $dump = $updateseq->sequence;
         if ($dump == 4) {
             Tanaman::where('jenisTanaman', $request->jenisTanaman)->delete();
-        } else {
-            $search = Tanaman::where('sequence', $dump + 1)->first();
-            $search->sequence = $dump - 1;
-            Tanaman::where('jenisTanaman', $request->jenisTanaman)->delete();
+        } else if ($dump == 3) {
+            if ($search = Tanaman::where('sequence', 4)->first()) {
+                $search->sequence = 3;
+                $search->save();
+            }
+        } else if ($dump == 2) {
+            if ($search = Tanaman::where('sequence', 3)->first()) {
+                $search->sequence = 2;
+                $search->save();
+            } else if ($search = Tanaman::where('sequence', 4)->first()) {
+                $search->sequence = 3;
+                $search->save();
+            }
+        } else if ($dump == 1) {
+            if ($search = Tanaman::where('sequence', 2)->first()) {
+                $search->sequence = 1;
+                $search->save();
+            } else if ($search = Tanaman::where('sequence', 3)->first()) {
+                $search->sequence = 2;
+                $search->save();
+            } else if ($search = Tanaman::where('sequence', 4)->first()) {
+                $search->sequence = 3;
+                $search->save();
+            }
         }
 
 

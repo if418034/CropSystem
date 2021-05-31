@@ -65,14 +65,6 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('hasilpanens.index') }}" :active="request()->routeIs('tanamans.index')">
-                <i class="fab fa-fw fa-pagelines fa-cog"></i>
-                <span>{{ __('Hasil Panen') }} </span>
-            </a>
-        </li>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
             <a class="nav-link" href="{{ route('sequences.index') }}">
                 <i class="fas fa-fw fa"></i>
                 <span>{{ __('Urutan Penanaman') }}</span></a>
@@ -80,17 +72,25 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('crops.index') }}" :active="request()->routeIs('crops.index')">
-                <i class="fas fa-fw fa-clipboard-check"></i>
-                <span>{{ __('Informasi Cropping') }} </span>
+            <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>{{ __('Jadwal Penanaman') }} </span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('hasilpanens.index') }}" :active="request()->routeIs('tanamans.index')">
+                <i class="fab fa-fw fa-pagelines fa-cog"></i>
+                <span>{{ __('Hasil Panen') }} </span>
             </a>
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
-                <i class="fas fa-fw fa-calendar"></i>
-                <span>{{ __('Jadwal Penanaman') }} </span>
+            <a class="nav-link" href="{{ route('crops.index') }}" :active="request()->routeIs('crops.index')">
+                <i class="fas fa-fw fa-clipboard-check"></i>
+                <span>{{ __('Informasi Cropping') }} </span>
             </a>
         </li>
 
