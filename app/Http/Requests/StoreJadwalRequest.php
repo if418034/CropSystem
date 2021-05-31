@@ -24,13 +24,13 @@ class StoreJadwalRequest extends FormRequest
     public function rules()
     {
         return [
-            'varietasTanaman' => [
+            'jenis_tanaman' => [
                 'required', 'string',
             ],
             'pembibitan' => [
                 'required', 'date',
             ],
-            'penyemaian' => [ 
+            'penyemaian' => [
                 'required', 'date',
             ],
             'panen' => [

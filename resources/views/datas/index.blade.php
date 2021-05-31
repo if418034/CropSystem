@@ -116,7 +116,7 @@
                                                 {{$data->kuantitas}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{$data->status}} &#176;
+                                                {{$data->status}}
                                             </td>
                                         </tr>
                                         @endforeach

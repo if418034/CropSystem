@@ -11,6 +11,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SequenceController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\HasilPanenController;
 
 
 /*
@@ -38,6 +39,7 @@ Route::resource('crops', CropsController::class);
 //Route::resource('profile', CropsController::class);
 Route::resource('jadwals', JadwalsController::class);
 Route::resource('sequences', SequenceController::class);
+Route::resource('hasilpanens', HasilPanenController::class);
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

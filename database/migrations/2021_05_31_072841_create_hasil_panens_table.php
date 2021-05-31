@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalsTable extends Migration
+class CreateHasilPanensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateJadwalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('hasil_panens', function (Blueprint $table) {
             $table->id();
-            $table->string('varietasTanaman');
-            $table->date('pembibitan');
-            $table->date('penyemaian');
-            $table->date('panen');
+            $table->string('jenis_tanaman');
+            $table->integer('berat');
+            $table->string('nama_petani');
+            $table->string('nomor_wa');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateJadwalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('hasil_panens');
     }
 }

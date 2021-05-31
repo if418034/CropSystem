@@ -58,13 +58,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="password_confirmation" value="{{ __('Confirm Password') }}"></label>
-<<<<<<< HEAD
                                         <input id="password_confirmation" class="form-control form-control-user" type="password"
                                         placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
-
-=======
-                                        <input id="password_confirmation" class="form-control form-control-user" type="password" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
->>>>>>> origin
                                     </div>
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                     <div class="mt-4">

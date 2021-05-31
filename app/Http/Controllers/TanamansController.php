@@ -18,7 +18,6 @@ class TanamansController extends Controller
     public function index()
     {
         $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->get();
-//        dd(Tanaman::join('kategori_tanamans as kat', 'tanamans.id', '=', 'kat.id')->get());
 
         return view('tanamans.index', compact('tanamans'));
     }
@@ -42,7 +41,7 @@ class TanamansController extends Controller
      */
     public function store(Request $request)
     {
-//        Tanaman::create($request->validated());
+
         $tanaman = new Tanaman();
         $tanaman->id_kategori = $request->id_kategori;
         $tanaman->jenisTanaman = $request->jenisTanaman;
