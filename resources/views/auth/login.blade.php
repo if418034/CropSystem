@@ -46,7 +46,7 @@
                                         {{ session('status') }}
                                     </div>
                                     @endif
-                                    <form class="user" method="POST" action="{{ route('login') }}">
+                                    <form class="user" method="POST" action="{{ url('/login') }}">
                                         @csrf
                                         <div class="form-group">
                                             <label for="email" value="{{ __('Email') }}"></label>
@@ -66,11 +66,8 @@
                                             {{ __('Log in') }}
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
                                     <hr>

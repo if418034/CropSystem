@@ -16,6 +16,17 @@
                 @csrf
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
+                        <label for="id_kategori" class="block font-medium text-sm text-gray-700">Kategori Tanaman</label>
+                        <select id="id_kategori" name="id_kategori">
+                            @foreach($kategoris as $kategori)
+                            <option value="{{$kategori->id}}">{{$kategori->kategori}}</option>
+                            @endforeach
+                        </select>
+                        @error('jenisTanaman')
+                        <p class="text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="px-4 py-5 bg-white sm:p-6">
                         <label for="jenisTanaman" class="block font-medium text-sm text-gray-700">Jenis Tanaman</label>
                         <input type="text" name="jenisTanaman" id="jenisTanaman" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('jenisTanaman', '') }}" />
                         @error('jenisTanaman')

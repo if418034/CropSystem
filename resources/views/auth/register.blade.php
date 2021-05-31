@@ -40,7 +40,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
                             <x-jet-validation-errors class="mb-4" />
-                            <form class="user" method="POST" action="{{ route('register') }}">
+                            <form class="user" method="POST" action="{{ route('users.store') }}">
                                 @csrf
 
                                 <div class="form-group">
@@ -58,7 +58,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="password_confirmation" value="{{ __('Confirm Password') }}"></label>
-                                        <input id="password_confirmation" class="form-control form-control-user" type="password" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                                        <input id="password_confirmation" class="form-control form-control-user" type="password"
+                                        placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                     <div class="mt-4">
@@ -77,15 +78,12 @@
                                     </div>
                                     @endif
                                 </div>
-                                <button class="btn btn-primary btn-user btn-block">
-                                    {{ __('Register') }}
-                                </button>
+                                    <button class="btn btn-primary btn-user btn-block">
+                                        Create
+                                    </button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                 </a>
                             </form>
                             <hr>

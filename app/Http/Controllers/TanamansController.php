@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTanamanRequest;
 use App\Http\Requests\UpdateTanamanRequest;
+use App\Models\KategoriTanaman;
 use Illuminate\Http\Request;
 use App\Models\Tanaman;
 
@@ -16,7 +17,7 @@ class TanamansController extends Controller
      */
     public function index()
     {
-        $tanamans = Tanaman::all();
+        $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->get();
 
         return view('tanamans.index', compact('tanamans'));
     }
@@ -28,7 +29,8 @@ class TanamansController extends Controller
      */
     public function create()
     {
-        return view('tanamans.create');
+        $kategoris = KategoriTanaman::all();
+        return view('tanamans.create', compact('kategoris'));
     }
 
     /**
@@ -37,10 +39,15 @@ class TanamansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTanamanRequest $request)
+    public function store(Request $request)
     {
-        Tanaman::create($request->validated());
 
+        $tanaman = new Tanaman();
+        $tanaman->id_kategori = $request->id_kategori;
+        $tanaman->jenisTanaman = $request->jenisTanaman;
+        $tanaman->kondisiAgroclimatic = $request->kondisiAgroclimatic;
+        $tanaman->jenisPupuk = $request->jenisPupuk;
+        $tanaman->save();
         return redirect()->route('tanamans.index');
     }
 
@@ -50,9 +57,9 @@ class TanamansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tanaman $tanaman)
+    public function show(Tanaman $tanaman, KategoriTanaman $kategories)
     {
-        return view('tanamans.show', compact('tanaman'));
+        return view('tanamans.show', compact('tanaman', 'kategories'));
     }
 
     /**
