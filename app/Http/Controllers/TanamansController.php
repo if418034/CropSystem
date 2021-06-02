@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTanamanRequest;
+//Y
 use App\Http\Requests\UpdateTanamanRequest;
+use App\Models\Jadwal;
 use App\Models\KategoriTanaman;
 use Illuminate\Http\Request;
 use App\Models\Tanaman;
@@ -17,7 +18,7 @@ class TanamansController extends Controller
      */
     public function index()
     {
-        $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->get();
+        $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->select('tanamans.*','kat.kategori')->get();
 
         return view('tanamans.index', compact('tanamans'));
     }
@@ -57,9 +58,9 @@ class TanamansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tanaman $tanaman, KategoriTanaman $kategories)
+    public function show(Tanaman $tanaman)
     {
-        return view('tanamans.show', compact('tanaman', 'kategories'));
+        return view('tanamans.show', compact('tanaman'));
     }
 
     /**
@@ -98,5 +99,19 @@ class TanamansController extends Controller
         $tanaman->delete();
 
         return redirect()->route('tanamans.index');
+    }
+
+    public function detail($str){
+        //tanaman
+        $tanamans = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.jenisTanaman', $str)->select('tanamans.*','kat.kategori')->get();
+
+        //jadwal penanaman
+        $jadwals = Jadwal::where('jenis_tanaman', $str)->get();
+
+
+//        dd($tanaman, $jadwals);
+        return view('tanamans.detail', compact('tanamans', 'jadwals'));
+
+
     }
 }

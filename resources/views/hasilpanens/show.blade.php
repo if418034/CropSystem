@@ -1,17 +1,17 @@
 @extends('layouts/app')
 
-@section('title', 'Dashboard | CropSystem')
+@section('title', 'Hasil Panen | CropSystem')
 
-@section('container')    
+@section('container')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Detail Tanaman
+            Detail Hasil Panen
         </h2>
     </x-slot>
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('tanamans.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Kembali ke list</a>
+                <a href="{{ route('hasilpanens.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Kembali ke list</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -23,7 +23,7 @@
                                         ID
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $tanaman->id }}
+                                        {{ $panen->id }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -31,23 +31,23 @@
                                         Jenis Tanaman
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $tanaman->jenisTanaman }}
+                                        {{ $panen->jenis_tanaman }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Kondisi Agroclimatic
+                                        Berat (Kg)
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $tanaman->kondisiAgroclimatic }}
+                                        {{ $panen->berat }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Jenis Pupuk
+                                        Nomor Telepon/WhatsApp
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $tanaman->jenisPupuk }}
+                                        {{ $panen->nomor_wa }}
                                     </td>
                                 </tr>
                             </table>

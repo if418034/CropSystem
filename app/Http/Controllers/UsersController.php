@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $this->validate($request, [
             'email' => 'required',
             'password' => 'required'
@@ -18,47 +19,25 @@ class UsersController extends Controller
         $email = $request->email;
         $password = $request->password;
         $data = User::where('email', $email)->first();
-        $pw = User::where('email', $email)->where('password', $password);
-        $admin = User::where('email', $email)->where('admin', 1);
-        $farmer = User::where('farmer', 1);
-
-//        if($data){
-//            if($pw){
-//                if($admin){
-////                    Auth::login($admin);
-//                    return redirect('tanamansssd');
-//                }elseif($farmer){
-////                    Auth::login($farmer);
-//                    return redirect()->intended('crops');
-//                }else{
-//                    return redirect('/unregistered');
-//                }
-//            }else{
-//                return redirect('login')->with('alert','Password atau Email, Salah !');
-//            }
-//        }
-
-        if(Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ])){
-            $user = User::where('email', $request->email)->first();
-            if($user->is_admin()){
-                return redirect()->intended('users');
-            }else if($user->is_farmer()){
-                return redirect()->route('dashboard');
-            }else{
-                return view('request.index');
+        if ($data) {
+            if (Hash::check($password, $data->password)) {
+                if ($data->admin == '1') {
+                    Auth::login($data);
+                    return redirect()->intended('tanamans');
+                } elseif ($data->farmer == '1') {
+                    Auth::login($data);
+                    return redirect()->intended('tanamans');
+                } else {
+                    return redirect('login')->with('alert', 'Password atau Email, Salah !');
+                }
             }
-        }else{
-            return redirect()->back()->with('alert', 'Email atau Password salah !!');
         }
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
@@ -90,7 +69,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -98,7 +77,8 @@ class UsersController extends Controller
         return view('profile.show', compact('user'));
     }
 
-    public function changeFarmer(Request $request){
+    public function changeFarmer(Request $request)
+    {
         $update = User::findOrFail($request->id);
         $update->farmer = 1;
         $update->save();
@@ -109,7 +89,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
@@ -119,7 +99,8 @@ class UsersController extends Controller
         return redirect('/users');
     }
 
-    public function unregistered(){
+    public function unregistered()
+    {
         return view('request.index');
     }
 }

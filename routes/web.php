@@ -12,6 +12,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SequenceController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\HasilPanenController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -36,7 +37,6 @@ Route::resource('roles', RolesController::class);
 Route::resource('tanamans', TanamansController::class);
 Route::resource('datas', DatasController::class);
 Route::resource('crops', CropsController::class);
-//Route::resource('profile', CropsController::class);
 Route::resource('jadwals', JadwalsController::class);
 Route::resource('sequences', SequenceController::class);
 Route::resource('hasilpanens', HasilPanenController::class);
@@ -58,6 +58,7 @@ Route::post('/sequence/simpanUrutan', [SequenceController::class, 'simpanUrutan'
 
 Route::get('/changePassword/{id}' , [UsersController::class, 'changePassword']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])
+    ->get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/detail/{str}', [TanamansController::class, 'detail']);

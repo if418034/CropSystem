@@ -17,7 +17,7 @@ class JadwalsController extends Controller
      */
     public function index()
     {
-        $jadwals = Jadwal::join('tanamans as tan', 'jadwals.jenis_tanaman', '=', 'tan.jenisTanaman')->orderBy('jadwals.pembibitan')->get();
+        $jadwals = Jadwal::join('tanamans as tan', 'jadwals.jenis_tanaman', '=', 'tan.jenisTanaman')->select('jadwals.*', 'tan.jenisTanaman')->orderBy('jadwals.pembibitan')->get();
         $sequences = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get();
 
         return view('jadwals.index', compact('jadwals', 'sequences'));
@@ -94,9 +94,9 @@ class JadwalsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jadwal $jadwal)
+    public function destroy($id)
     {
-        $jadwal->delete();
+        Jadwal::find($id)->delete();
 
         return redirect()->route('jadwals.index');
     }

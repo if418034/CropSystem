@@ -1,8 +1,8 @@
 @extends('layouts/app')
 
-@section('title', 'Dashboard | CropSystem')
+@section('title', 'Tanaman | CropSystem')
 
-@section('container')    
+@section('container')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Detail Tanaman

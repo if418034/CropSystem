@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateHasilPanenRequest;
 use App\Models\HasilPanen;
 use App\Models\Tanaman;
 use App\Models\Jadwal;
@@ -48,7 +49,6 @@ class HasilPanenController extends Controller
         $hasilpanen->nama_petani = $request->nama_petani;
         $hasilpanen->nomor_wa = $request->nomor_wa;
 
-        //get tanaman id -> delete  from jadwal && delete fro sequence && delete from tanamans
         $remove = Jadwal::where('jenis_tanaman', '=', $request->jenisTanaman)->delete();
 
         $updateseq = Tanaman::where('jenisTanaman', $request->jenisTanaman)->first();
@@ -81,9 +81,7 @@ class HasilPanenController extends Controller
             }
         }
 
-
         $delete = Tanaman::where('jenisTanaman', '=', $request->jenisTanaman)->delete();
-
 
         $hasilpanen->save();
         return redirect()->route('hasilpanens.index');
@@ -97,7 +95,8 @@ class HasilPanenController extends Controller
      */
     public function show($id)
     {
-        //
+        $panen = HasilPanen::find($id);
+        return view('hasilpanens.show', compact('panen'));
     }
 
     /**
@@ -108,7 +107,8 @@ class HasilPanenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $panen = HasilPanen::find($id);
+        return view('hasilpanens.edit', compact('panen'));
     }
 
     /**
@@ -118,9 +118,15 @@ class HasilPanenController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $panen = HasilPanen::find($id);
+        $panen->berat = $request->berat;
+        $panen->nama_petani = $request->nama_petani;
+        $panen->nomor_wa = $request->nomor_wa;
+        $panen->save();
+
+        return redirect()->route('hasilpanens.index');
     }
 
     /**
