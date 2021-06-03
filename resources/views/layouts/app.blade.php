@@ -10,12 +10,12 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet" />
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -30,7 +30,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                    <img src="../img/logo.png" alt="">
+                    <img src="../../img/logo.png" alt="">
                 </div>
                 <div class="sidebar-brand-text mx-3"></div>
             </a>
@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ url('/dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -61,6 +61,29 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sequences.index') }}">
+                    <i class="fas fa-fw fa"></i>
+                    <span>{{ __('Urutan Penanaman') }}</span></a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
+                    <i class="fas fa-fw fa-calendar"></i>
+                    <span>{{ __('Jadwal Penanaman') }} </span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('hasilpanens.index') }}" :active="request()->routeIs('tanamans.index')">
+                    <i class="fab fa-fw fa-pagelines fa-cog"></i>
+                    <span>{{ __('Hasil Panen') }} </span>
+                </a>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('crops.index') }}" :active="request()->routeIs('crops.index')">
@@ -71,16 +94,8 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('jadwals.index') }}" :active="request()->routeIs('jadwals.index')">
-                    <i class="fas fa-fw fa-calendar"></i>    
-                    <span>{{ __('Jadwal Penanaman') }} </span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('datas.index') }}" :active="request()->routeIs('datas.index')">
-                    <i class="fas fa-fw fa-tree"></i>    
+                    <i class="fas fa-fw fa-tree"></i>
                     <span>{{ __('Data Tanaman') }} </span>
                 </a>
             </li>
@@ -95,33 +110,23 @@
 
             <!-- Nav Item - Account -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('profile.show') }}">
+                <a class="nav-link" href="{{ route('profile.show', auth()->user()->id) }}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Profile') }}</span></a>
+                    <span>{{ __('Profil') }}</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('feedback.index') }}">
                     <i class="fas fa-fw fa-comments"></i>
-                    <span>{{ __('Feedback') }}</span></a>
+                    <span>{{ __('Komentar') }}</span></a>
             </li>
-<<<<<<< HEAD
             @if(Auth::check() && Auth::user()->admin == 1)
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('users.index') }}">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>{{ __('Users') }}</span></a>
+                    <span>{{ __('Pengguna') }}</span></a>
             </li>
             @endif
-=======
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('roles.index') }}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>{{ __('Users') }}</span></a>
-            </li>
->>>>>>> origin
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline"> `
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -164,13 +169,9 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('profile.show') }}">
+                                <a class="dropdown-item" href="{{ route('profile.show', auth()->user()->id) }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Profile') }}
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Manage Account') }}
                                 </a>
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <a class="dropdown-item" href="{{ route('api-tokens.index') }}">
@@ -240,8 +241,6 @@
             </div>
         </div>
     </div>
-
-
 
 
     <!-- Bootstrap core JavaScript-->
