@@ -23,10 +23,10 @@ class UsersController extends Controller
             if (Hash::check($password, $data->password)) {
                 if ($data->admin == '1') {
                     Auth::login($data);
-                    return redirect()->intended('tanamans');
+                    return redirect()->intended('dashboard');
                 } elseif ($data->farmer == '1') {
                     Auth::login($data);
-                    return redirect()->intended('tanamans');
+                    return redirect()->intended('dashboard');
                 } else {
                     return redirect('login')->with('alert', 'Password atau Email, Salah !');
                 }

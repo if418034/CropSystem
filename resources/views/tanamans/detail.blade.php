@@ -104,42 +104,123 @@
                                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
-                                                <tr>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                        Varietas Tanaman
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                        Waktu Pembibitan
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                        Waktu Penyemaian
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                        Waktu Panen
-                                                    </th>
-                                                </tr>
+                                            <tr>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                    Varietas Tanaman
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                    Waktu Pembibitan
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                    Waktu Penyemaian
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                    Waktu Panen
+                                                </th>
+                                            </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach($jadwals as $jadwal)
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    {{$jadwal->jenis_tanaman}}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    {{$jadwal->pembibitan}}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    {{$jadwal->penyemaian}}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    {{$jadwal->panen}}
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{$jadwal->jenis_tanaman}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                        {{$jadwal->pembibitan}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                        {{$jadwal->penyemaian}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                        {{$jadwal->panen}}
+                                                    </td>
+                                                </tr>
                                             @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <!-- Umbi - umbian -->
+                                            <div class="tab-pane fade" id="nav-umbi" role="tabpanel"
+                                                 aria-labelledby="nav-umbi-tab">
+                                                <div class="text text-black mt-4">
+                                                    <h4>Umbi - umbian</h4> <br>
+                                                    <b>Kentang</b> <br>
+                                                    Syarat : <br>
+                                                    <div class="ml-5">
+                                                        - Tumbuh sempurna di dataran tinggi, berkisar antara 1.600
+                                                        hingga 3.000 meter di atas permukaan laut. <br>
+                                                        - Kelembapan udara antara 80% hingga 90% <br>
+                                                        - Curah hujan berkisar antara 1200 hingga 1500 mm/th <br>
+                                                        - PH tanah netral berkisar 5 hingga 6, 5. Jika terlalu asam
+                                                        (kurang dai 5) lakukan pengapuran. Sebaliknya <br>
+                                                        jika tanah terlalu basa (lebih dari 9) berikan belerang sebelum
+                                                        penanaman. <br>
+                                                        - Suhu antara 15 hingga 20 derajat celsius <br>
+                                                    </div>
+                                                    <br>
+                                                    Cara Penanaman : <br>
+                                                    1. Cangkul tanah agar menjadi gembur dan biarkan kurang lebih 3 hari
+                                                    agar terpapar sinar matahari. <br>
+                                                    2. Berikan pupuk kompos pada lahan kemudian cangkul agar merata
+                                                    dalam tanah serta diamkan selama 7 hari <br>
+                                                    3. Buatlah bedengan dengan tinggi 30 cm, dan lebar 70 cam menghadap
+                                                    ke timur-barat agar mendapat pasokan sinar <br>
+                                                    matahari yang maksimal <br>
+                                                    4. Jarak bedengan 40 cm <br>
+                                                    5. Buatlah lubang tanam di atas bedengan dengan jarak antar lubang
+                                                    tanam kira-kira 20 cm hingga 25 cm. <br>
+                                                    6. Selanjutnya tanamlah umbi kentang yang telah bertunas kurang
+                                                    lebih 2 cm, kemudian tutup kembali dengan tanah <br>
+                                                    setebal 5 cm. <br>
+                                                    <br>
+                                                    Cara pemupukan : <br>
+                                                    Pemupukan rutin setiap 20 hari sekali sejak masa tanam dengan dosis:
+                                                    <br>
+                                                    <div class="ml-5">
+                                                        1. Pupuk Urea 500kg/h <br>
+                                                        2. Pupuk ZA 150 kg/h <br>
+                                                        3. Pupuk KCL 100 kg/h <br>
+                                                        4. Pupuk SP36 400 kg/h <br>
+                                                    </div>
+                                                    <br>
+                                                    Penyiangan: <br>
+                                                    Fase berikutnya penyianagn dapat dlakukan berbarengan dengan
+                                                    pemupukan. Atau dapat juga dimulai setelah usia <br>
+                                                    tanam menginjak umur 30 hari dan kemudian pada umur 50 hari. <br>
+                                                    <br>
+                                                    Penyiraman: <br>
+                                                    Siram pada tanah yang terlihat kering. Terlalu banyak air akan
+                                                    menghentikan pertumbuhan umbi kentang. Pentiraman <br>
+                                                    dapat dilakukan seminggu sekali tanpa membuat lahan terlalu basah
+                                                    tergenang air. <br>
+                                                    <br>
+                                                    Masa Panen: <br>
+                                                    Tanaman kentang umumnya dapat dipanen pada usia 3 sampa 4 bulan
+                                                    setelah masa tanam. Lakukanlah panen kentang <br>
+                                                    pada waktu cuaca cerah. Memanen pada saat hujan akan membuat kentang
+                                                    cepat membusuk <br>
+
+
+                                                </div>
+                                            </div>
                                             </tbody>
                                         </table>
                                     </div>
