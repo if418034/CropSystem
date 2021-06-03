@@ -13,8 +13,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('tanamans.create') }}"
-                   class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Tambah Tanaman</a>
+                @if(Auth::check() && Auth::user()->admin == 1)
+                    <a href="{{ route('tanamans.create') }}"
+                       class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Tambah Tanaman</a>
+                @endif
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -43,8 +45,10 @@
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Jenis Pupuk
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                                    @if(Auth::check() && Auth::user()->admin == 1)
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -75,20 +79,24 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             {{$tanaman->jenisPupuk}}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('tanamans.show', $tanaman->id) }}"
-                                               class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                            <a href="{{ route('tanamans.edit', $tanaman->id) }}"
-                                               class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
-                                            <form class="inline-block"
-                                                  action="{{ route('tanamans.destroy', $tanaman->id) }}" method="POST"
-                                                  onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?');">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2"
-                                                       value="Delete">
-                                            </form>
-                                        </td>
+                                        @if(Auth::check() && Auth::user()->admin == 1)
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="{{ route('tanamans.show', $tanaman->id) }}"
+                                                   class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                                <a href="{{ route('tanamans.edit', $tanaman->id) }}"
+                                                   class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                                <form class="inline-block"
+                                                      action="{{ route('tanamans.destroy', $tanaman->id) }}"
+                                                      method="POST"
+                                                      onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?');">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="submit"
+                                                           class="text-red-600 hover:text-red-900 mb-2 mr-2"
+                                                           value="Delete">
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>

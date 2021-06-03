@@ -15,15 +15,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $time = Carbon::now()->toDateString();
-        $data = Jadwal::max('id');
+        $today = date("Y-m-d");
+        $date = Jadwal::all();
 
-        for ($id = 1; $id <= $data; $id++) {
-            if (Jadwal::find($id)) {
-                $view = Jadwal::where('id', $id)->where('pembibitan', '<=', $time)->where('panen', '>', $time)->get();
-            }
-        }
-        return view('dashboard', compact('view'));
+        return view('dashboard',['date'=>$date],['today'=>$today]);
     }
 
     /**

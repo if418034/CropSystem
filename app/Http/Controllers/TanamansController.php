@@ -6,8 +6,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateTanamanRequest;
 use App\Models\Jadwal;
 use App\Models\KategoriTanaman;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Tanaman;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 
 class TanamansController extends Controller
 {
@@ -108,10 +111,9 @@ class TanamansController extends Controller
         //jadwal penanaman
         $jadwals = Jadwal::where('jenis_tanaman', $str)->get();
 
+        $today = date("Y-m-d");
+        $date = Jadwal::all();
 
-//        dd($tanaman, $jadwals);
-        return view('tanamans.detail', compact('tanamans', 'jadwals'));
-
-
+        return view('tanamans.detail', ['date'=>$date, 'today'=>$today,'tanamans'=>$tanamans ,'jadwals'=>$jadwals]);
     }
 }

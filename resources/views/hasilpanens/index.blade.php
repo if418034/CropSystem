@@ -62,6 +62,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm font-medium text-gray-900">
                                                 {{$panen->jenis_tanaman}}
+
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -73,8 +74,9 @@
                                             <div class="text-sm text-gray-900">{{$panen->nama_petani}}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{$panen->nomor_wa}}
+                                            <a href="https://api.whatsapp.com/send?phone=+62{{$panen->nomor_wa}}&text=Saya%20ingin%20membeli%20hasil%20panen%20anda.">{{$panen->nomor_wa}}</a>
                                         </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{ route('hasilpanens.show', $panen->id) }}"
                                                class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
@@ -89,6 +91,7 @@
                                                        value="Delete">
                                             </form>
                                         </td>
+
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -9,7 +9,7 @@
 
         <div class="row">
             <!-- Pie Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-3 col-lg-3">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -18,30 +18,17 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col"
-                                    class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Varietas
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Batches Qty
-                                </th>
-                            </tr>
-                            </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach($view as $ss)
-                                <tr>
+                            <tr>
+                                @foreach($date as $dates)
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$ss->jenis_tanaman}}</div>
+                                        @if($dates ->pembibitan <= $today && $today < $dates ->panen )
+                                            <a class="text-sm text-gray-900"
+                                               href="{{url('/detail', $dates->jenis_tanaman)}}">{{$dates->jenis_tanaman}}</a>
+                                        @endif
                                     </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900"></div>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                @endforeach
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -55,7 +42,7 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Task</h6>
                         <div class="text-xs font-weight-bold">
-                            Lihat semua
+                            <a href="{{ route('tanamans.index') }}">Lihat Selengkapnya</a>
                         </div>
                     </div>
                     <!-- Card Body -->
