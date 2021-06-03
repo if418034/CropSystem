@@ -16,9 +16,9 @@ class SequenceController extends Controller
     {
         $notinsequence = Tanaman::where('sequence', null)->get();
         $count = count($notinsequence);
-        $sequences = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get();
+        $sequences = Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence', '>=', 1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get();
         $countt = count($sequences);
-//        dd(Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get());
+        //        dd(Tanaman::join('kategori_tanamans as kat', 'tanamans.id_kategori', '=', 'kat.id')->where('tanamans.sequence','>=',1)->select('tanamans.*', 'kat.kategori as kategori')->orderBy('tanamans.sequence')->get());
 
         return view('sequences.index', compact('sequences', 'notinsequence', 'count', 'countt'));
     }
@@ -37,11 +37,11 @@ class SequenceController extends Controller
         $tanamans = Tanaman::orderBy('sequence')->get();
         $data = Tanaman::all();
         $i = 0;
-        foreach($data as $tanam) {
+        foreach ($data as $tanam) {
             $tanam = Tanaman::where('id', $request->id[$i])->first();
-            if($request->sequence[$i] == 0) {
+            if ($request->sequence[$i] == 0) {
                 $tanam->sequence = null;
-            }else{
+            } else {
                 $tanam->sequence = $request->sequence[$i];
             }
             $tanam->save();
@@ -81,7 +81,6 @@ class SequenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**

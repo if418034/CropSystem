@@ -56,9 +56,9 @@ Route::get('/unregistered', [UsersController::class, 'unregistered']);
 Route::get('/sequence/editUrutan', [SequenceController::class, 'editUrutan']);
 Route::post('/sequence/simpanUrutan', [SequenceController::class, 'simpanUrutan']);
 
-Route::get('/changePassword/{id}' , [UsersController::class, 'changePassword']);
+Route::get('/changePassword/{id}', [UsersController::class, 'changePassword']);
 
 Route::middleware(['auth:sanctum', 'verified'])
-    ->get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    ->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/detail/{str}', [TanamansController::class, 'detail']);
