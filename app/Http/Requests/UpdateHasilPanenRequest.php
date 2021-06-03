@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreJadwalRequest extends FormRequest
+class UpdateHasilPanenRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,15 +27,18 @@ class StoreJadwalRequest extends FormRequest
             'jenis_tanaman' => [
                 'required', 'string',
             ],
-            'pembibitan' => [
-                'required', 'date',
+            'berat' => [
+                'required', 'integer',
             ],
-            'penyemaian' => [
-                'required', 'date',
+            'jenisPupuk' => [
+                'required', 'string',
             ],
-            'panen' => [
-                'required', 'date',
-            ]
+            'nama_petani' => [
+                'required', 'string',
+            ],
+            'nomor-wa' => [
+                'required', 'string',
+            ],
         ];
     }
 }

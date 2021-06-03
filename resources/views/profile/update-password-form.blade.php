@@ -8,12 +8,13 @@
     </x-slot>
 
     <x-slot name="form">
+        @if(Auth::check() && Auth::user()->where('google_id')->exists())
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="current_password" value="{{ __('Current Password') }}" />
             <x-jet-input id="current_password" type="password" class="mt-1 block w-full" wire:model.defer="state.current_password" autocomplete="current-password" />
             <x-jet-input-error for="current_password" class="mt-2" />
         </div>
-
+        @endif
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="password" value="{{ __('New Password') }}" />
             <x-jet-input id="password" type="password" class="mt-1 block w-full" wire:model.defer="state.password" autocomplete="new-password" />

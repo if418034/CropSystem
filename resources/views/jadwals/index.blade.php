@@ -13,6 +13,36 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="block mb-8">
+            <table class="min-w-half divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col"
+                        class="px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Nomor Urutan
+                    </th>
+                    <th scope="col"
+                        class="px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Jenis Tanaman
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                @foreach($sequences as $sequence)
+                    <tr>
+                        <td class="px-2 py-1 whitespace-nowrap">
+                            {{$sequence->sequence}}
+                        </td>
+                        <td class="px-2 py-1 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">
+                                {{$sequence->jenisTanaman}}
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="block mb-8">
             <a href="{{ route('jadwals.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Tambah Jadwal Penanaman</a>
         </div>
         <div class="flex flex-col">
@@ -55,18 +85,18 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
-                                                {{$jadwal->varietasTanaman}}
+                                                {{$jadwal->jenisTanaman}}
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">{{$jadwal->pembibitan}}</div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         {{$jadwal->penyemaian}}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$jadwal->panen}} 
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        {{$jadwal->panen}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <a href="{{ route('jadwals.show', $jadwal->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>

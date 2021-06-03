@@ -15,7 +15,7 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->string('varietasTanaman');
+            $table->string('jenis_tanaman')->references('jenisTanaman')->on('tanamans');
             $table->date('pembibitan');
             $table->date('penyemaian');
             $table->date('panen');

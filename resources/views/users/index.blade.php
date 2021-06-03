@@ -65,7 +65,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a href="{{ url('/changeFarmer', $unassigned->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Jadikan sebagai Petani</a>
                                         <form class="inline-block" action="{{ route('users.destroy', $unassigned->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin ingin menghapus user ini?');">
-                                            <input type="hidden" name="_method" value="DELETE">
+                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
                                         </form>

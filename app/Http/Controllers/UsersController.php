@@ -2,42 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCropRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    public function login(Request $request){
-
-        if(Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ])){
-            $user = User::where('email', $request->email)->first();
-            if($user->is_admin()){
-                return redirect()->route('tanamans');
-            }else if($user->is_farmer()){
-                return redirect()->route('dashboard');
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $email = $request->email;
+        $password = $request->password;
+        $data = User::where('email', $email)->first();
+        if ($data) {
+            if (Hash::check($password, $data->password)) {
+                if ($data->admin == '1') {
+                    Auth::login($data);
+                    return redirect()->intended('tanamans');
+                } elseif ($data->farmer == '1') {
+                    Auth::login($data);
+                    return redirect()->intended('tanamans');
+                } else {
+                    return redirect('login')->with('alert', 'Password atau Email, Salah !');
+                }
             }
-        }else{
-            return redirect()->back()->withInput($request->only('email', 'password'))->withErrors([
-                'email' => 'Email anda tidak terdaftar',]);
         }
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCropRequest $request)
+    public function store(StoreUserRequest $request)
     {
-        User::create($request->validated());
-
-        return redirect()->route('/unregistered');
+        $newUser = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+        return view('request.index');
     }
 
     /**
@@ -56,7 +66,19 @@ class UsersController extends Controller
         return view('users.index', compact('farmers', 'unassigneds', 'count', 'farm', 'admin'));
     }
 
-    public function changeFarmer(Request $request){
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        return view('profile.show', compact('user'));
+    }
+
+    public function changeFarmer(Request $request)
+    {
         $update = User::findOrFail($request->id);
         $update->farmer = 1;
         $update->save();
@@ -67,7 +89,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
@@ -77,7 +99,8 @@ class UsersController extends Controller
         return redirect('/users');
     }
 
-    public function unregistered(){
+    public function unregistered()
+    {
         return view('request.index');
     }
 }

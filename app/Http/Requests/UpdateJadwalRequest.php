@@ -24,8 +24,8 @@ class UpdateJadwalRequest extends FormRequest
     public function rules()
     {
         return [
-            'varietasTanaman' => [
-                'required', 'string',
+            'id_tanaman' => [
+                'required', 'int',
             ],
             'pembibitan' => [
                 'required', 'date',

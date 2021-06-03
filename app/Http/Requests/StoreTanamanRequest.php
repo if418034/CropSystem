@@ -32,7 +32,10 @@ class StoreTanamanRequest extends FormRequest
             ],
             'jenisPupuk' => [
                 'required', 'string',
-            ]
+            ],
+            'id_kategori' => [
+                'required', 'int',
+            ],
         ];
     }
 }

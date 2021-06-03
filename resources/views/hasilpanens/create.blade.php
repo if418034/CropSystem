@@ -1,49 +1,49 @@
 @extends('layouts/app')
 
-@section('title', 'Jadwal Penanaman | CropSystem')
+@section('title', 'Hasil Panen | CropSystem')
 
 @section('container')
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Tambah Jadwal Penanaman
+        Tambah Hasil Panen
     </h2>
 </x-slot>
 
 <div>
     <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
-            <form method="post" action="{{ route('jadwals.store') }}">
+            <form method="post" action="{{ route('hasilpanens.store') }}">
                 @csrf
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="varietasTanaman" class="block font-medium text-sm text-gray-700">Varietas Tanaman</label>
-                        <select id="jenis_tanaman" name="jenis_tanaman">
-                            @foreach($varietas as $variasi)
-                                <option value="{{$variasi->jenisTanaman}}">{{$variasi->jenisTanaman}}</option>
+                        <label for="jenisTanaman" class="block font-medium text-sm text-gray-700">Jenis Tanaman</label>
+                        <select id="jenisTanaman" name="jenisTanaman">
+                            @foreach($panens as $panen)
+                            <option value="{{$panen->jenisTanaman}}">{{$panen->jenisTanaman}}</option>
                             @endforeach
                         </select>
-                        @error('varietasTanaman')
+                        @error('jenisTanaman')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="pembibitan" class="block font-medium text-sm text-gray-700">Waktu Pembibitan</label>
-                        <input type="date" name="pembibitan" id="pembibitan" class="form-input rounded-md shadow-sm mt-1 block" value="{{ old('pembibitan', '') }}" />
-                        @error('pembibitan')
+                        <label for="berat" class="block font-medium text-sm text-gray-700">Berat (Kg)</label>
+                        <input type="number" name="berat" id="berat" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('berat', '') }}" />
+                        @error('berat')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="penyemaian" class="block font-medium text-sm text-gray-700">Waktu Penyemaian</label>
-                        <input type="date" name="penyemaian" id="penyemaian" class="form-input rounded-md shadow-sm mt-1 block" value="{{ old('penyemaian', '') }}" />
-                        @error('penyemaian')
+                        <label for="nama_petani" class="block font-medium text-sm text-gray-700">Nama Petani</label>
+                        <input type="text" name="nama_petani" id="nama_petani" type="text" class="form-input rounded-md shadow-sm mt-1 block" value="{{ old('nama_petani', '') }}" />
+                        @error('nama_petani')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="panen" class="block font-medium text-sm text-gray-700">Waktu Panen</label>
-                        <input type="date" name="panen" id="panen" class="form-input rounded-md shadow-sm mt-1 block" value="{{ old('panen', '') }}" />
-                        @error('panen')
+                        <label for="nomor_wa" class="block font-medium text-sm text-gray-700">Nomor Telepon/WhatsApp</label>
+                        <input type="text" name="nomor_wa" id="nomor_wa" type="text" class="form-input rounded-md shadow-sm mt-1 block" value="{{ old('nomor_wa', '') }}" />
+                        @error('nomor_wa')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
@@ -59,4 +59,5 @@
         </div>
     </div>
 </div>
+
 @endsection

@@ -64,7 +64,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('sequences.index') }}">
-                    <i class="fas fa-fw fa"></i>
+                    <i class="fas fa-fw fa-tasks"></i>
                     <span>{{ __('Urutan Penanaman') }}</span></a>
             </li>
 
