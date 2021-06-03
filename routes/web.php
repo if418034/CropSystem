@@ -5,7 +5,6 @@ use App\Http\Controllers\TanamansController;
 use App\Http\Controllers\CropsController;
 use App\Http\Controllers\JadwalsController;
 use App\Http\Controllers\DatasController;
-use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RequestController;
@@ -13,6 +12,8 @@ use App\Http\Controllers\SequenceController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\HasilPanenController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CommentsController;
+
 
 
 /*
@@ -30,7 +31,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('feedback', FeedbackController::class);
+Route::resource('comments', CommentsController::class);
 Route::resource('request', RequestController::class);
 Route::resource('users', UsersController::class);
 Route::resource('roles', RolesController::class);
