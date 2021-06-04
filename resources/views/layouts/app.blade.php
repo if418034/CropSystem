@@ -115,7 +115,7 @@
                     <span>{{ __('Profil') }}</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('comments.index') }}">
+                <a class="nav-link" href="{{ route('feedback.index') }}">
                     <i class="fas fa-fw fa-comments"></i>
                     <span>{{ __('Komentar') }}</span></a>
             </li>

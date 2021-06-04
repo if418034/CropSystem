@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Information</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Images</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-
+                    
                     @auth
                     <li class="nav-item ml-2"><a href="{{ url('/dashboard') }}" class="nav-link js-scroll-trigger">Dashboard</a></li>
                     @else
@@ -176,29 +176,19 @@
     </div>
     <!-- Call to action-->
     <section class="page-section bg-light text-black">
-        <form class="mx-5" method="post" action="{{ route('comments.store') }}">
-            @csrf
+        <form class="mx-5">
             <h3>Leave your reply</h3>
             <div class="form-group ml-5 mr-5 mt-5">
-                <label for="email">Alamat Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" value="{{ old('email', ' ') }}">
-                @error('email')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-                @enderror
+                <label for="address">Alamat Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>
             <div class="form-group ml-5 mr-5">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama', '') }}" placeholder="Nama Lengkap">
-                @error('nama')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-                @enderror
+                <label for="fullname">Nama</label>
+                <input type="name" class="form-control" id="fullname" placeholder="Nama Lengkap">
             </div>
             <div class="form-group ml-5 mr-5">
                 <label for="komentar">Komentar</label>
-                <textarea class="form-control" id="komentar" name="komentar" value="{{ old('komentar', '') }}" placeholder="Berikan komentar anda" rows="3"></textarea>
-                @error('komentar')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-                @enderror
+                <textarea class="form-control" id="komentar" placeholder="Berikan komentar anda" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-secondary mx-5">Post</button>
         </form>
