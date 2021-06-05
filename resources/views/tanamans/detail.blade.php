@@ -113,41 +113,41 @@
                                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
-                                            <tr>
-                                                <th scope="col"
-                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                    Varietas Tanaman
-                                                </th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                    Waktu Pembibitan
-                                                </th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                    Waktu Penyemaian
-                                                </th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
-                                                    Waktu Panen
-                                                </th>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                        Varietas Tanaman
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                        Waktu Pembibitan
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                        Waktu Penyemaian
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider mr-5">
+                                                        Waktu Panen
+                                                    </th>
+                                                </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach($jadwals as $jadwal)
-                                                <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                        {{$jadwal->jenis_tanaman}}
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                        {{$jadwal->pembibitan}}
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                        {{$jadwal->penyemaian}}
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                        {{$jadwal->panen}}
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    {{$jadwal->jenis_tanaman}}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                    {{$jadwal->pembibitan}}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                    {{$jadwal->penyemaian}}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                    {{$jadwal->panen}}
+                                                </td>
+                                            </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
@@ -158,6 +158,7 @@
                     </div>
                 </div>
             </div>
+
             @foreach($tanamans as $tanaman)
                 @if($tanaman->kategori == 'Umbi-Umbian')
                     <div class="tab-pane fade" id="nav-kategori" role="tabpanel" aria-labelledby="nav-kategori-tab">

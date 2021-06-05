@@ -21,12 +21,12 @@ class GoogleController extends Controller
         $notfarmer = User::where('google_id', $user->getId())->where('farmer', 0)->first();
         if ($findadmin) {
             Auth::login($findadmin);
-            return redirect()->intended('dashboard');
+            return redirect()->intended('tanamans');
         } else if ($notfarmer) {
             return redirect('/unregistered');
         } else if ($findfarmer) {
             Auth::login($findfarmer);
-            return redirect()->intended('dashboard');
+            return redirect()->intended('crops');
         } else {
             $newUser = User::create([
                 'name' => $user->getName(),
